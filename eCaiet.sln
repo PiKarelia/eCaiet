@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eClientService", "eClientSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eClientService.Tests", "eClientService.Tests\eClientService.Tests.csproj", "{74A7D454-046D-4535-B793-9812525A8FF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eCaietAngular", "eCaietAngular\eCaietAngular.csproj", "{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{74A7D454-046D-4535-B793-9812525A8FF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74A7D454-046D-4535-B793-9812525A8FF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{74A7D454-046D-4535-B793-9812525A8FF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCDBF716-31D8-4D3E-96F0-13EA00E46CBC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

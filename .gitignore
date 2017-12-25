@@ -1,3 +1,9 @@
 .vs/
 eCaiet/bin/
 eCaiet/obj/
+eClientService.Tests/bin/
+eClientService.Tests/obj/
+eClientService/bin/
+eClientService/obj/
+eCaiet.Tests/bin/
+eCaiet.Tests/obj/
