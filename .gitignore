@@ -7,3 +7,5 @@ eClientService/bin/
 eClientService/obj/
 eCaiet.Tests/bin/
 eCaiet.Tests/obj/
+eCaiet.FileManager/obj/
+eCaiet.FileManager/bin/
