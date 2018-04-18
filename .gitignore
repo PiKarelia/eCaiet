@@ -1,3 +1,15 @@
 .vs/
 eCaiet/bin/
 eCaiet/obj/
+
+eCaiet\.DAL/bin/
+
+eCaiet\.DAL/obj/
+
+eCaiet\.BE/bin/
+
+eCaiet\.BE/obj/
+
+eCaiet\.Test/bin/
+
+eCaiet\.Test/obj/
