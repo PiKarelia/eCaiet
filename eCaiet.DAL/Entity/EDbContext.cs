@@ -11,6 +11,7 @@ namespace eCaiet.DAL.Entity
     {
         #region DbSet tables
         public DbSet<User> Users { get; set; }
+        public DbSet<Course> Courses { get; set; }
         #endregion
 
 
@@ -21,6 +22,7 @@ namespace eCaiet.DAL.Entity
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new UserConfiguration());
+            builder.ApplyConfiguration(new CourseConfiguration());
         }
     }
 }

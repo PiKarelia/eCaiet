@@ -19,7 +19,10 @@ namespace eCaiet.BE
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseKestrel()
+                .UseIISIntegration()
                 .UseStartup<Startup>()
+                .UseUrls("http://localhost:6958/")
                 .Build();
     }
 }

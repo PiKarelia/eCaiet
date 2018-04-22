@@ -39,6 +39,10 @@ namespace eCaiet.DAL.Entity.Configurations
             builder
                 .Property(u => u.LastName)
                 .HasMaxLength(35);
+
+            builder
+                .HasMany(c => c.Courses)
+                .WithOne(u => u.User);
         }
     }
 }
