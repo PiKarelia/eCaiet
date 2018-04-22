@@ -16,20 +16,29 @@ namespace eCaiet.DAL.Entity.Configurations
 
             builder
                 .Property(u => u.Login)
-                .IsRequired();
+                .IsRequired()
+                .HasMaxLength(50);
             builder
                 .HasIndex(u => u.Login)
                 .IsUnique();
 
             builder
                 .Property(u => u.Password)
-                .IsRequired();
+                .IsRequired().HasMaxLength(300);
 
             builder
-                .Property(u => u.Email).IsRequired();
+                .Property(u => u.Email).IsRequired().HasMaxLength(254);
             builder
                 .HasIndex(u => u.Email)
                 .IsUnique();
+
+            builder
+                .Property(u => u.FirstName)
+                .HasMaxLength(35);
+
+            builder
+                .Property(u => u.LastName)
+                .HasMaxLength(35);
         }
     }
 }
