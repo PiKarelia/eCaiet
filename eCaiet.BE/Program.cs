@@ -22,7 +22,6 @@ namespace eCaiet.BE
                 .UseKestrel()
                 .UseIISIntegration()
                 .UseStartup<Startup>()
-                .UseUrls("http://localhost:6958/")
                 .Build();
     }
 }

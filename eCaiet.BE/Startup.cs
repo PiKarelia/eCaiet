@@ -30,6 +30,7 @@ namespace eCaiet.BE
             services.Configure<IISOptions>(options =>
             {
                 options.ForwardClientCertificate = false;
+                options.AutomaticAuthentication = false;
             });
 
             services.AddDbContext<EDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));

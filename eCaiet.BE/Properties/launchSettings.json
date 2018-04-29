@@ -3,29 +3,20 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iis": {
-      "applicationUrl": "http://localhost/eCaiet.BE",
-      "sslPort": 0
-    },
-    "iisExpress": {
-      "applicationUrl": "http://localhost:37959/",
+      "applicationUrl": "http://localhost:6958/",
       "sslPort": 0
     }
   },
-  "profiles": {
-    "IIS Express": {
-      "commandName": "IISExpress",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
+  "eCaiet.BE": {
+    "commandName": "IIS",
+    "environmentVariables": {
+      "ASPNETCORE_ENVIRONMENT": "Development"
     },
+    "applicationUrl": "http://localhost:6958/"
+  },
+  "profiles": {
     "eCaiet.BE": {
-      "commandName": "IIS",
-      "launchBrowser": true,
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      },
-      "applicationUrl": "http://localhost:37960/"
+      "commandName": "IIS"
     }
   }
 }
