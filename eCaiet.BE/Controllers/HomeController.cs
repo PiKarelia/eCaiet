@@ -5,13 +5,18 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using eCaiet.BE.Models;
+using log4net;
 
 namespace eCaiet.BE.Controllers
 {
+
     public class HomeController : Controller
     {
+        private readonly ILog Log = LogManager.GetLogger(typeof(HomeController));
+
         public IActionResult Index()
         {
+            Log.Debug("Entering Index IActionResult");
             return View();
         }
 
