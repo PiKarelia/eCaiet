@@ -7,16 +7,23 @@
       "sslPort": 0
     }
   },
-  "eCaiet.BE": {
-    "commandName": "IIS",
-    "environmentVariables": {
-      "ASPNETCORE_ENVIRONMENT": "Development"
-    },
-    "applicationUrl": "http://localhost:6958/"
-  },
   "profiles": {
     "eCaiet.BE": {
-      "commandName": "IIS"
+      "commandName": "IIS",
+      "launchBrowser": true,
+      "launchUrl": "api/values",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "eCaiet.BE": {
+    "commandName": "IIS",
+      "launchBrowser": true,
+      "launchUrl": "api/values",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:6958/"
     }
   }
 }

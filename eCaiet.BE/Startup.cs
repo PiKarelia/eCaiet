@@ -3,16 +3,21 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using eCaiet.BE.Classes.InjectedInterfaces;
+using eCaiet.BE.Classes.Utilities;
 using eCaiet.DAL.Entity;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-
+using Microsoft.Extensions.Options;
+using Microsoft.IdentityModel.Tokens;
 namespace eCaiet.BE
 {
     public class Startup
@@ -34,6 +39,25 @@ namespace eCaiet.BE
             });
 
             services.AddDbContext<EDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddTransient<ITokenBuilder,TokenBuilder>(token => new TokenBuilder(Configuration["jwtAuth:jwtSecretKey"]));
+            services.AddTransient<DAL.DAL>(d =>
+                new DAL.DAL(d.GetService<EDbContext>()));
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(
+                    cfg =>
+                    {
+                        cfg.TokenValidationParameters = new TokenValidationParameters
+                        {
+                            ValidateIssuerSigningKey = true,
+                            ValidateLifetime = false,
+                            ValidateAudience = false,
+                            ValidateIssuer = false,
+                            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["jwtAuth:jwtSecretKey"]))
+                        };
+                    }
+                );
 
             services.AddMvc();
         }
@@ -59,7 +83,7 @@ namespace eCaiet.BE
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Account}/{action=Index}/{id?}");
             });
         }
 

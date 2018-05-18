@@ -3,12 +3,16 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <StartupObject>eCaiet.BE.Program</StartupObject>
+    <AssemblyName>eCaiet.BE</AssemblyName>
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="log4net" Version="2.0.8" />
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.7" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
   </ItemGroup>
 
   <ItemGroup>
