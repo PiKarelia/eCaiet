@@ -1,5 +1,7 @@
 ﻿using System.Net;
+using System.Net.Http.Headers;
 using log4net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCaiet.FE.Controllers
@@ -8,7 +10,6 @@ namespace eCaiet.FE.Controllers
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(ContentController));
 
-        //[Authorization()]
         public IActionResult ViewCourses()
         {
             return View();

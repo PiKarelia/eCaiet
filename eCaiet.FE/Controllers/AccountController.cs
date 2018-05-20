@@ -1,19 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System;
+using eCaiet.DAL.Models.View;
+
+using eCaiet.FE.Services.Managers.API;
+using log4net;
+using Microsoft.AspNetCore.Mvc;
 
 namespace eCaiet.FE.Controllers
 {
+    //[Route("")]
     public class AccountController : Controller
     {
-        /*private static readonly ILog Log = LogManager.GetLogger(typeof(AccountController));
+        private static readonly ILog Log = LogManager.GetLogger(typeof(AccountController));
 
-        private readonly ITokenBuilder _tokenBuilder;
+        private readonly ApiAccountController _client;
 
-
-        public AccountController(ITokenBuilder tokenBuilder/*,UsersTable userTable#1#)
+        public AccountController(ApiAccountController client)
         {
-            _tokenBuilder = tokenBuilder;
+            _client = client;
         }
-
+        
         public IActionResult Index()
 
         {
@@ -22,29 +27,19 @@ namespace eCaiet.FE.Controllers
         }
 
         [HttpPost]
-        public IActionResult Authenticate(LoginModel loginModel)
+        public IActionResult Token([FromForm] LoginModel loginModel)
         {
-            Log.Debug("in authenticate: login="+ loginModel.Login);
-            loginModel.Password = MD5GEnerator.GetMD5(loginModel.Password);
-            var user = new User()
+            try
             {
-                Email = "ana.grigorcea@yopmail.com",
-                FirstName = "Ana",
-                LastName = "Grigorcea",
-                Guid = new Guid("e3968e57-3fd8-4be1-98aa-75c69cb150c9"),
-                Login = "anag",
-                Password = "7C8B7AFAAC654C4DD276BF94CF996A43"
-            };
-
-
-            //var user = UserTable.Auth
-            
-            var token = _tokenBuilder.Generate(user);
-            Log.Debug(token);
-            //INSERT TO CACHE 
-            //return (IActionResult)Ok(token);
-
-            return RedirectToAction("Index", "Home");
-        }*/
+                var token = _client.Token(loginModel);
+                Response.Cookies.Append("Authorization", token);
+                return RedirectToAction("ViewCourses", "Content");
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                throw;
+            }
+        }
     }
 }

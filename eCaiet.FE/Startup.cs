@@ -5,6 +5,9 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using System.Xml;
+using eCaiet.FE.Services.Interfaces;
+using eCaiet.FE.Services.Managers;
+using eCaiet.FE.Services.Managers.API;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -25,6 +28,10 @@ namespace eCaiet.FE
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton(opt => new ApiConnector().ConnnectToHost(Configuration["BEHost"]));
+
+            services.AddTransient(opt => new ApiAccountController(opt.GetService<IApiConnector>()));
+
             services.AddMvc();
         }
 
@@ -46,7 +53,6 @@ namespace eCaiet.FE
             app.UseStaticFiles();
 
             app.UseDefaultFiles();
-            app.UseStaticFiles();
 
             app.UseMvc(routes =>
             {

@@ -9,14 +9,6 @@
   },
   "profiles": {
     "eCaiet.BE": {
-      "commandName": "IIS",
-      "launchBrowser": true,
-      "launchUrl": "api/values",
-      "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
-      }
-    },
-    "eCaiet.BE": {
     "commandName": "IIS",
       "launchBrowser": true,
       "launchUrl": "api/values",

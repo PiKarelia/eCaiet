@@ -41,8 +41,10 @@ namespace eCaiet.BE
             services.AddDbContext<EDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddTransient<ITokenBuilder,TokenBuilder>(token => new TokenBuilder(Configuration["jwtAuth:jwtSecretKey"]));
+
             services.AddTransient<DAL.DAL>(d =>
                 new DAL.DAL(d.GetService<EDbContext>()));
+            services.AddTransient(opt => opt.GetService<DAL.DAL>().Users);
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(
