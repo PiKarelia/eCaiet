@@ -1,0 +1,30 @@
+﻿@model IEnumerable<eCaiet.DAL.Models.DB.Course>
+@{
+    ViewData["Title"] = "Cursuri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var course in Model)
+{
+    <div class="col-md-4" style="max-width: 250px;">
+        <div class="mt-element-list">
+            <div class="mt-list-head list-default font-white bg-green-seagreen">
+                <div class="list-head-title-container">
+                    <h3 class="list-title">@course.Name</h3>
+                    <div class="list-date">@course.LastUpdateDate.ToString("g")</div>
+                </div>
+            </div>
+            <div class="bg-grey-cararra bg-font-grey-cararra mt-list-container list-default ext-1 group">
+                <div class="mt-list-title uppercase" style="min-height: 250px">
+                    @course.Description
+                    @*<span class="badge badge-default pull-right bg-hover-green-jungle">
+                        <a class="font-white" href="javascript:;">
+                            <i class="fa fa-plus"></i>
+                        </a>
+                    </span>*@
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

@@ -45,6 +45,7 @@ namespace eCaiet.BE
             services.AddTransient<DAL.DAL>(d =>
                 new DAL.DAL(d.GetService<EDbContext>()));
             services.AddTransient(opt => opt.GetService<DAL.DAL>().Users);
+            services.AddTransient(opt => opt.GetService<DAL.DAL>().Courses);
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(
@@ -60,6 +61,11 @@ namespace eCaiet.BE
                         };
                     }
                 );
+            services.Configure<IISOptions>(options =>
+            {
+                options.ForwardClientCertificate = false;
+                options.AutomaticAuthentication = false;
+            });
 
             services.AddMvc();
         }

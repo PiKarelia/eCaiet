@@ -18,20 +18,18 @@ namespace eCaiet.BE.Controllers
 
         private readonly ITokenBuilder _tokenBuilder;
 
-        //private readonly DAL.DAL _dal;
         private IUsersRepo _userRepo;
 
-        public AccountController(ITokenBuilder tokenBuilder/*,UsersTable userTable*/, IUsersRepo userRepo)
+        public AccountController(ITokenBuilder tokenBuilder, IUsersRepo userRepo)
         {
             _tokenBuilder = tokenBuilder;
             _userRepo = userRepo;
         }
 
         public IActionResult Index()
-
         {
             Log.Debug("Entering Index");
-            return Ok(); //View(new LoginModel());
+            return Ok(); 
         }
 
         [HttpPost]

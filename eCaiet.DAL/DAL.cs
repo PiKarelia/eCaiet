@@ -11,9 +11,11 @@ namespace eCaiet.DAL
         public DAL(EDbContext db)
         {
             Users = new UsersRepo(db);
+            Courses = new CoursesRepo(db);
         }
 
         public IUsersRepo Users { get; set; }
 
+        public ICoursesRepo Courses { get; set; }
     }
 }

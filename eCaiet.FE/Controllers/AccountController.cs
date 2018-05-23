@@ -33,7 +33,7 @@ namespace eCaiet.FE.Controllers
             {
                 var token = _client.Token(loginModel);
                 Response.Cookies.Append("Authorization", token);
-                return RedirectToAction("ViewCourses", "Content");
+                return RedirectToAction("ViewCourses", "Course");
             }
             catch (Exception e)
             {

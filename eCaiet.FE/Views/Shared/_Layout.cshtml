@@ -93,6 +93,7 @@ License: You must have a valid license purchased only from themeforest(the above
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="" name="description" />
     <meta content="" name="author" />
+    <title>@ViewData["Title"] | eCaiet</title>
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
     <link href="~/Theme/global/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
@@ -139,14 +140,15 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- END RESPONSIVE MENU TOGGLER -->
             <!-- BEGIN PAGE ACTIONS -->
             <!-- DOC: Remove "hide" class to enable the page header actions -->
-            @*<div class="page-actions">
+            <div class="page-actions">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-circle btn-outline red dropdown-toggle" data-toggle="dropdown">
+                    <h4 class="font-blue-dark">@ViewData["Title"] </h4>
+                    @*<button type="button" class="btn btn-circle btn-outline red dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-plus"></i>&nbsp;
                         <span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;
                         <i class="fa fa-angle-down"></i>
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
+                    </button>*@
+                    @*<ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="javascript:;">
                                 <i class="icon-docs"></i> New Post
@@ -175,9 +177,9 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <span class="badge badge-danger">2</span>
                             </a>
                         </li>
-                    </ul>
+                    </ul>*@
                 </div>
-            </div>*@
+            </div>
             <!-- END PAGE ACTIONS -->
             <!-- BEGIN PAGE TOP -->
             <div class="page-top">
