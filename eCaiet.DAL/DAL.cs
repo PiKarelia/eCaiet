@@ -12,10 +12,13 @@ namespace eCaiet.DAL
         {
             Users = new UsersRepo(db);
             Courses = new CoursesRepo(db);
+            Files = new FilesRepo(db);
         }
 
         public IUsersRepo Users { get; set; }
 
         public ICoursesRepo Courses { get; set; }
+
+        public IFilesRepo Files { get; set; }
     }
 }

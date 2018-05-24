@@ -12,7 +12,9 @@ namespace eCaiet.DAL.Models.DB
         public DateTime CreationDate { get; set; }
         public DateTime LastUpdateDate { get; set; }
         public bool Public { get; set; }
+
         public Guid UserGuid { get; set; }
         public User User { get; set; }
-    }
+        public IEnumerable<File> Files{ get; set; }
+}
 }

@@ -12,7 +12,8 @@ namespace eCaiet.DAL.Models.DB
         public string Email { get; set; } 
         public string FirstName { get; set; } 
         public string LastName { get; set; } 
-        //public File Avartar{ get; set; }
+
+        public File Avartar{ get; set; }
         public ICollection<Course> Courses { get; set; }
     }
 }

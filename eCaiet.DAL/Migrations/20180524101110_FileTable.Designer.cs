@@ -11,9 +11,10 @@ using System;
 namespace eCaiet.DAL.Migrations
 {
     [DbContext(typeof(EDbContext))]
-    partial class EDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180524101110_FileTable")]
+    partial class FileTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

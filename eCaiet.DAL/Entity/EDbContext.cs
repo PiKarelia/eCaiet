@@ -12,6 +12,7 @@ namespace eCaiet.DAL.Entity
         #region DbSet tables
         public DbSet<User> Users { get; set; }
         public DbSet<Course> Courses { get; set; }
+        public DbSet<File> Files { get; set; }
         #endregion
 
 
@@ -23,6 +24,7 @@ namespace eCaiet.DAL.Entity
         {
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new CourseConfiguration());
+            builder.ApplyConfiguration(new FileConfiguration());
         }
     }
 }

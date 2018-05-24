@@ -11,7 +11,6 @@ namespace eCaiet.DAL.Repos
 {
     class UsersRepo :IUsersRepo
     {
-
         private readonly EDbContext _db;
 
         public UsersRepo(EDbContext db)

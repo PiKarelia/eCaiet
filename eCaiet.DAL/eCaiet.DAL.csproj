@@ -5,6 +5,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20180524095610_FileTable.cs" />
+    <Compile Remove="Migrations\20180524100629_FileTable.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Persistance\" />
   </ItemGroup>
 
