@@ -8,5 +8,7 @@ namespace eCaiet.DAL.Repos.Interfaces
     public interface ICoursesRepo
     {
         IEnumerable<Course> GetAllUserCourses(Guid user);
+        Course GetCourseWithFilesByGuid(Guid course);
+        bool AddFile(File file);
     }
 }

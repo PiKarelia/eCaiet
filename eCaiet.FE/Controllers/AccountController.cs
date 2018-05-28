@@ -2,7 +2,9 @@
 using eCaiet.DAL.Models.View;
 
 using eCaiet.FE.Services.Managers.API;
+using eCaiet.FE.Utils.Extension;
 using log4net;
+using Microsoft.ApplicationInsights.Extensibility.Implementation;
 using Microsoft.AspNetCore.Mvc;
 
 namespace eCaiet.FE.Controllers
@@ -20,8 +22,10 @@ namespace eCaiet.FE.Controllers
         }
         
         public IActionResult Index()
-
         {
+            string token;
+            HttpContext.Request.Cookies.TryGetValue("Authorization",out token);
+            if (string.IsNullOrEmpty(token)) RedirectToAction("Index", "Home");
             Log.Debug("Entering Index");
             return View(new LoginModel());
         }
@@ -41,5 +45,14 @@ namespace eCaiet.FE.Controllers
                 throw;
             }
         }
+
+        [HttpGet]
+        public IActionResult LogOut()
+        {
+            Response.Cookies.Delete("Authorization");
+
+            return RedirectToAction("Index");
+        }
+
     }
 }

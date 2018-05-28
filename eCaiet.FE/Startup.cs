@@ -31,6 +31,7 @@ namespace eCaiet.FE
             services.AddSingleton(opt => new ApiConnector().ConnnectToHost(Configuration["BEHost"]));
 
             services.AddTransient(opt => new ApiAccountController(opt.GetService<IApiConnector>()));
+            services.AddTransient(opt => new ApiContentController(opt.GetService<IApiConnector>()));
 
             services.AddMvc();
         }
@@ -58,7 +59,7 @@ namespace eCaiet.FE
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Content}/{action=ViewCourses}/{id?}");
+                    template: "{controller=Account}/{action=Index}/{id?}");
             });
         }
 

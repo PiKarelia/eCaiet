@@ -142,13 +142,13 @@ License: You must have a valid license purchased only from themeforest(the above
             <!-- DOC: Remove "hide" class to enable the page header actions -->
             <div class="page-actions">
                 <div class="btn-group">
-                    <h4 class="font-blue-dark">@ViewData["Title"] </h4>
-                    @*<button type="button" class="btn btn-circle btn-outline red dropdown-toggle" data-toggle="dropdown">
+                    <div class="col-md-6"><h4 class="font-blue-dark">@ViewData["Title"] </h4></div>
+                    <button type="button" class="btn btn-circle btn-outline green dropdown-toggle col-md-6" data-toggle="dropdown">
                         <i class="fa fa-plus"></i>&nbsp;
-                        <span class="hidden-sm hidden-xs">New&nbsp;</span>&nbsp;
-                        <i class="fa fa-angle-down"></i>
-                    </button>*@
-                    @*<ul class="dropdown-menu" role="menu">
+                        <span class="hidden-sm hidden-xs">Nou&nbsp;</span>&nbsp;
+                        @*<i class="fa fa-angle-down"></i>*@
+                    </button>
+                    <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="javascript:;">
                                 <i class="icon-docs"></i> New Post
@@ -177,7 +177,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <span class="badge badge-danger">2</span>
                             </a>
                         </li>
-                    </ul>*@
+                    </ul>
                 </div>
             </div>
             <!-- END PAGE ACTIONS -->
@@ -185,16 +185,16 @@ License: You must have a valid license purchased only from themeforest(the above
             <div class="page-top">
                 <!-- BEGIN HEADER SEARCH BOX -->
                 <!-- DOC: Apply "search-form-expanded" right after the "search-form" class to have half expanded search box -->
-                @*<form class="search-form search-form-expanded" action="page_general_search_3.html" method="GET">
+                <form class="search-form search-form-expanded" action="javascript:;" method="GET">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search..." name="query">
+                        <input type="text" class="form-control" placeholder="Căutare..." name="query">
                         <span class="input-group-btn">
                             <a href="javascript:;" class="btn submit">
                                 <i class="icon-magnifier"></i>
                             </a>
                         </span>
                     </div>
-                </form>*@
+                </form>
                 <!-- END HEADER SEARCH BOX -->
                 <!-- BEGIN TOP NAVIGATION MENU -->
                 <div class="top-menu">
@@ -519,34 +519,40 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <i class="icon-user"></i> Profilul meu
                                     </a>
                                 </li>
-                                @*<li>
-                                    <a href="app_calendar.html">
-                                        <i class="icon-calendar"></i> My Calendar
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="app_inbox.html">
-                                        <i class="icon-envelope-open"></i> My Inbox
-                                        <span class="badge badge-danger"> 3 </span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="app_todo_2.html">
-                                        <i class="icon-rocket"></i> My Tasks
-                                        <span class="badge badge-success"> 7 </span>
-                                    </a>
-                                </li>
                                 <li class="divider"> </li>
                                 <li>
-                                    <a href="page_user_lock_1.html">
-                                        <i class="icon-lock"></i> Lock Screen
+                                    <a href="/Account/LogOut">
+                                        <i class="icon-key"></i> Deloghează-te
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="page_user_login_1.html">
-                                        <i class="icon-key"></i> Log Out
-                                    </a>
-                                </li>*@
+                                @*<li>
+            <a href="app_calendar.html">
+                <i class="icon-calendar"></i> My Calendar
+            </a>
+        </li>
+        <li>
+            <a href="app_inbox.html">
+                <i class="icon-envelope-open"></i> My Inbox
+                <span class="badge badge-danger"> 3 </span>
+            </a>
+        </li>
+        <li>
+            <a href="app_todo_2.html">
+                <i class="icon-rocket"></i> My Tasks
+                <span class="badge badge-success"> 7 </span>
+            </a>
+        </li>
+        <li class="divider"> </li>
+        <li>
+            <a href="page_user_lock_1.html">
+                <i class="icon-lock"></i> Lock Screen
+            </a>
+        </li>
+        <li>
+            <a href="page_user_login_1.html">
+                <i class="icon-key"></i> Log Out
+            </a>
+        </li>*@
                             </ul>
                         </li>
                         <!-- END USER LOGIN DROPDOWN -->
@@ -579,36 +585,44 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
                     <li class="nav-item start active open">
-                        <a href="javascript:;" class="nav-link nav-toggle">
+                        <a href="@Url.Action("Index","Home")" class="nav-link nav-toggle">
                             <i class="icon-home"></i>
+                            <span class="title">Acasă</span>
+                            <span class="selected"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a href="@Url.Action("ViewCourses","Course")" class="nav-link nav-toggle">
+                            <i class="icon-folder"></i>
                             <span class="title">Cursuri</span>
                             <span class="selected"></span>
-                            @*<span class="arrow open"></span>*@
                         </a>
-                        @*<ul class="sub-menu">
-                            <li class="nav-item start active open">
-                                <a href="index.html" class="nav-link ">
-                                    <i class="icon-bar-chart"></i>
-                                    <span class="title">Dashboard 1</span>
-                                    <span class="selected"></span>
-                                </a>
-                            </li>
-                            <li class="nav-item start ">
-                                <a href="dashboard_2.html" class="nav-link ">
-                                    <i class="icon-bulb"></i>
-                                    <span class="title">Dashboard 2</span>
-                                    <span class="badge badge-success">1</span>
-                                </a>
-                            </li>
-                            <li class="nav-item start ">
-                                <a href="dashboard_3.html" class="nav-link ">
-                                    <i class="icon-graph"></i>
-                                    <span class="title">Dashboard 3</span>
-                                    <span class="badge badge-danger">5</span>
-                                </a>
-                            </li>
-                        </ul>*@
                     </li>
+
+                               @*<ul class="sub-menu">
+                       <li class="nav-item start active open">
+                           <a href="index.html" class="nav-link ">
+                               <i class="icon-bar-chart"></i>
+                               <span class="title">Dashboard 1</span>
+                               <span class="selected"></span>
+                           </a>
+                       </li>
+                       <li class="nav-item start ">
+                           <a href="dashboard_2.html" class="nav-link ">
+                               <i class="icon-bulb"></i>
+                               <span class="title">Dashboard 2</span>
+                               <span class="badge badge-success">1</span>
+                           </a>
+                       </li>
+                       <li class="nav-item start ">
+                           <a href="dashboard_3.html" class="nav-link ">
+                               <i class="icon-graph"></i>
+                               <span class="title">Dashboard 3</span>
+                               <span class="badge badge-danger">5</span>
+                           </a>
+                       </li>
+                   </ul>*@
                 </ul>
                 <!-- END SIDEBAR MENU -->
             </div>

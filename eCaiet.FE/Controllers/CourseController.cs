@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Net.Http.Headers;
 using eCaiet.DAL.Models.DB;
@@ -15,56 +16,38 @@ namespace eCaiet.FE.Controllers
     {
         private static readonly ILog Log = LogManager.GetLogger(typeof(CourseController));
 
-        private readonly ApiAccountController _accountConstrollerBE;
+        private readonly ApiContentController _contentControllerBE;
 
-        public CourseController(ApiAccountController accountConstrollerBE)
+        public CourseController(ApiContentController contentControllerBE)
         {
-            _accountConstrollerBE = accountConstrollerBE;
+            _contentControllerBE = contentControllerBE;
         }
 
         [HttpGet]
         public IActionResult ViewCourses()
         {
             var token = this.GetUserAuthToken();
-            //var res = _accountConstrollerBE.Token();
-            var data = new[]
-            {
-                new Course()
-                {
-                    UserGuid = Guid.NewGuid(),
-                    Guid = Guid.NewGuid(),
-                    User = null,
-                    Name = "SDMP",
-                    Description = "sami bag unbrela",
-                    CreationDate = DateTime.Now.AddDays(131),
-                    LastUpdateDate = DateTime.Now.AddDays(131),
-                    Public = true
-                },
-                new Course()
-                {
-                    UserGuid = Guid.NewGuid(),
-                    Guid = Guid.NewGuid(),
-                    User = null,
-                    Name = "PSI",
-                    Description = "Proiectare huiare",
-                    CreationDate = DateTime.Now.AddDays(31),
-                    LastUpdateDate = DateTime.Now.AddDays(31),
-                    Public = true
-                },
-                new Course()
-                {
-                    UserGuid = Guid.NewGuid(),
-                    Guid = Guid.NewGuid(),
-                    User = null,
-                    Name = "Relete",
-                    Description = "Relete intormaticeRelete intormaticeRelete intormaticeRelete intormatice",
-                    CreationDate = DateTime.Now.AddMonths(31),
-                    LastUpdateDate = DateTime.Now.AddMonths(31),
-                    Public = true
-                },
-            };
+            
+            var data = _contentControllerBE.GetAllcourses(token);
 
             return View(data);
+        }
+
+        [HttpGet]
+        public IActionResult CoursePage(Guid course)
+        {
+            var token = this.GetUserAuthToken();
+
+            var files = _contentControllerBE.GetCourseWithFilesByGuid(token, course);
+            return View(files);
+        }
+
+        [HttpPost]
+        public JsonResult AddFile(File file)
+        {
+            var token = this.GetUserAuthToken();
+            var res = _contentControllerBE.AddFile(token, file);
+            return new JsonResult(res);
         }
     }
 }
