@@ -97,8 +97,6 @@ namespace eCaiet.BE
             });
         }
 
-
-
         private static void ConfigureLog4Net()
         {
             XmlDocument log4NetConfig = new XmlDocument();
