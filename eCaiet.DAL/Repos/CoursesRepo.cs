@@ -30,11 +30,33 @@ namespace eCaiet.DAL.Repos
 
         public bool AddFile(File file)
         {
+            file.CreationDate = DateTime.Now;
+            file.LastUpdateDate = DateTime.Now;
             //TODO implement proxy pattern for validation
 
             //TODO update last modified date of course
             if (_db.Courses.Any(x => x.Guid == file.CourseGuid) && !string.IsNullOrEmpty(file.Name))
                 _db.Files.Add(file);
+            else
+            {
+                return false;
+            }
+            var nr = _db.SaveChanges();
+            return nr > 0;
+        }
+
+        public bool EditFile(File file)
+        {
+            //TODO implement proxy pattern for validation
+
+            //TODO update last modified date of course
+            if (_db.Courses.Any(x => x.Guid == file.CourseGuid))
+            {
+                var dbFile = _db.Files.FirstOrDefault(x => x.Guid == file.Guid);
+                dbFile.Data = file.Data;
+                dbFile.LastUpdateDate = DateTime.Now;
+                _db.Files.Attach(dbFile);
+            }
             else
             {
                 return false;

@@ -7,6 +7,7 @@ using eCaiet.FE.Services.Interfaces;
 using eCaiet.FE.Services.Managers.API;
 using eCaiet.FE.Utils.Extension;
 using log4net;
+using Microsoft.AspNetCore.Antiforgery.Internal;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -47,6 +48,21 @@ namespace eCaiet.FE.Controllers
         {
             var token = this.GetUserAuthToken();
             var res = _contentControllerBE.AddFile(token, file);
+            return new JsonResult(res);
+        }
+
+        [HttpPost]
+        public JsonResult EditFile(Guid Guid, string Data, Guid CourseGuid)
+        {
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(Data);
+            File file = new File()
+            {
+                Guid = Guid,
+                Data = data,
+                CourseGuid = CourseGuid
+            };
+            var token = this.GetUserAuthToken();
+            var res = _contentControllerBE.EditFile(token, file);
             return new JsonResult(res);
         }
     }

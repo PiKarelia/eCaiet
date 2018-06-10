@@ -50,5 +50,13 @@ namespace eCaiet.BE.Controllers
             if (!res) return BadRequest();
             return Ok("yas");
         }
+
+        [HttpPost]
+        public IActionResult EditFile([FromBody] File file)
+        {
+            var res = _courseRepo.EditFile(file);
+            if (!res) return BadRequest();
+            return Ok("yas");
+        }
     }
 }

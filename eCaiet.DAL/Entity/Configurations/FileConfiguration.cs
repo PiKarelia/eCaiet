@@ -26,6 +26,14 @@ namespace eCaiet.DAL.Entity.Configurations
                 .HasMaxLength(50);
 
             builder
+                .Property(f => f.LastUpdateDate)
+                .IsRequired();
+
+            builder
+                .Property(f => f.CreationDate)
+                .IsRequired();
+
+            builder
                 .HasOne(f => f.Owner)
                 .WithOne(t => t.Avartar)
                 .HasForeignKey<File>(k => k.OwnerGuid)  //HasForeignKey(k => k.OwnerGuid)

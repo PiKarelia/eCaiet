@@ -52,5 +52,22 @@ namespace eCaiet.FE.Services.Managers.API
                 return false;
             }
         }
+
+        public bool EditFile(AuthenticationHeaderValue token, File file)
+        {
+            //TODO handle errors as needed
+            try
+            {
+                var method = System.Reflection.MethodBase.GetCurrentMethod().Name;
+                var task = _connector.PostAsync<File>(GetPath(method), file, token);
+                task.Wait();
+                return true;
+            }
+            catch
+            {
+                //todo logging
+                return false;
+            }
+        }
     }
 }

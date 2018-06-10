@@ -117,7 +117,6 @@ License: You must have a valid license purchased only from themeforest(the above
     <link href="~/Theme/layouts/layout2/css/themes/blue.min.css" rel="stylesheet" type="text/css" id="style_color" />
     <link href="~/Theme/layouts/layout2/css/custom.min.css" rel="stylesheet" type="text/css" />
     <!-- END THEME LAYOUT STYLES -->
-    <link rel="shortcut icon" href="favicon.ico" />
     <link rel="shortcut icon" href="~/Theme/Logo/e.png" />
 </head>
 <!-- END HEAD -->
@@ -152,32 +151,19 @@ License: You must have a valid license purchased only from themeforest(the above
                     <ul class="dropdown-menu" role="menu">
                         <li>
                             <a href="javascript:;">
-                                <i class="icon-docs"></i> New Post
+                                <i class="icon-docs"></i> Curs
                             </a>
                         </li>
                         <li>
                             <a href="javascript:;">
-                                <i class="icon-tag"></i> New Comment
+                                <i class="fa fa-file-text-o"></i> Fișier
                             </a>
                         </li>
-                        <li>
+                        @*<li>
                             <a href="javascript:;">
                                 <i class="icon-share"></i> Share
                             </a>
-                        </li>
-                        <li class="divider"> </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-flag"></i> Comments
-                                <span class="badge badge-success">4</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">
-                                <i class="icon-users"></i> Feedbacks
-                                <span class="badge badge-danger">2</span>
-                            </a>
-                        </li>
+                        </li>*@
                     </ul>
                 </div>
             </div>
@@ -585,7 +571,8 @@ License: You must have a valid license purchased only from themeforest(the above
                 <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
                 <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
                 <ul class="page-sidebar-menu  page-header-fixed page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
-                    <li class="nav-item start active open">
+                    <li class="nav-item start">
+                        <!-- active open-->
                         <a href="@Url.Action("Index","Home")" class="nav-link nav-toggle">
                             <i class="icon-home"></i>
                             <span class="title">Acasă</span>

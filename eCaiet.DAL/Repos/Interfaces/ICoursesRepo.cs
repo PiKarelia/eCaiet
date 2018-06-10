@@ -10,5 +10,6 @@ namespace eCaiet.DAL.Repos.Interfaces
         IEnumerable<Course> GetAllUserCourses(Guid user);
         Course GetCourseWithFilesByGuid(Guid course);
         bool AddFile(File file);
+        bool EditFile(File file);
     }
 }

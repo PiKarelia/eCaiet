@@ -30,7 +30,7 @@
                         </li>
                     </ul>
                 </div>
-
+                <input id="course-guid" type="text" value="@Model.Guid" style="display: none">
                 <a class="btn btn-circle btn-default bg-yellow-saffron bg-font-yellow-saffron" href="javascript:;">
                     <i class="fa fa-pencil"></i> Editează
                 </a>
@@ -60,7 +60,7 @@
                                 <div id="editor_@lesson.Guid" style="min-height: 300px">
                                     @if (lesson.Data != null)
                                     {
-                                        Html.Encode(Encoding.ASCII.GetString(lesson.Data));
+                                            @Html.Raw(Encoding.ASCII.GetString(lesson.Data))
                                     }
                                 </div>
                             </div>
