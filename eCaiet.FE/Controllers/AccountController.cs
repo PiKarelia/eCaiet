@@ -54,5 +54,11 @@ namespace eCaiet.FE.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
+        public IActionResult Friends()
+        {
+            return View();
+        }
+
     }
 }

@@ -25,6 +25,8 @@ namespace eCaiet.DAL.Entity
             builder.ApplyConfiguration(new UserConfiguration());
             builder.ApplyConfiguration(new CourseConfiguration());
             builder.ApplyConfiguration(new FileConfiguration());
+            builder.ApplyConfiguration(new FriendConfiguration());
+            builder.ApplyConfiguration(new ChatRecordsConfiguration());
         }
     }
 }

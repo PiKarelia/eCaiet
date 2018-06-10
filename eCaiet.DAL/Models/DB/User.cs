@@ -15,5 +15,7 @@ namespace eCaiet.DAL.Models.DB
 
         public File Avartar{ get; set; }
         public ICollection<Course> Courses { get; set; }
+        public ICollection<Friend> Friends { get; set; }
+        public ICollection<ChatRecords> ChatRecords { get; set; }
     }
 }

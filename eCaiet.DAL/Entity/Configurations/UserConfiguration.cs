@@ -43,6 +43,10 @@ namespace eCaiet.DAL.Entity.Configurations
             builder
                 .HasMany(c => c.Courses)
                 .WithOne(u => u.User);
+
+            builder
+                .HasMany(x => x.Friends)
+                .WithOne(x => x.Friend1);
         }
     }
 }
